@@ -1,8 +1,8 @@
 var app = angular.module('crudApp',['ui.router','ngStorage']);
 
 app.constant('urls', {
-    BASE: 'http://localhost:8084/UserRegistration',
-    USER_SERVICE_API : 'http://localhost:8084/UserRegistration/api/user/'
+    BASE: '/UserRegistration',
+    USER_SERVICE_API : '/UserRegistration/api/user/'
 });
 
 app.config(['$stateProvider', '$urlRouterProvider',
@@ -16,7 +16,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 controllerAs:'ctrl',
                 resolve: {
                     users: function ($q, UserService) {
-                        console.log('Load all users');
+                        console.log('Load all users --kk ');
                         var deferred = $q.defer();
                         UserService.loadAllUsers().then(deferred.resolve, deferred.resolve);
                         return deferred.promise;
